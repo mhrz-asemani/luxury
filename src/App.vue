@@ -1,7 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import BlurredCard from "./components/BlurredCard.vue";
-import LuxPart from "./components/LuxPart.vue";
 </script>
 
 <template>
@@ -11,15 +10,13 @@ import LuxPart from "./components/LuxPart.vue";
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="/assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
   <HelloWorld msg="Vite + Vue by Amin" />
 </template>
 
-<style scoped lang="sass">
-/*@import "./luxury.sass";*/
-
+<style lang="sass">
 .logo
   height: 6em
   padding: 1.5em

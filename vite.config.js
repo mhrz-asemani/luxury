@@ -1,14 +1,14 @@
+// import { fileURLToPath, URL } from "url";
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
-import sass from 'rollup-plugin-sass';
 import usePHP from 'vite-plugin-php';
 
 
 export default defineConfig({
   plugins: [
     vue(),
-    sass({ insert: true }),
+    // sass({ insert: true }),
     // usePHP({
       // entry: ['index.php']
     // }),
@@ -24,11 +24,11 @@ export default defineConfig({
 
     }
   },
-  resolve: {
-    alias: {
-      // "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     "@": fileURLToPath(new URL("./src", import.meta.url)),
+  //   },
+  // },
   css: {
     preprocessorOptions: {
       sass: {
