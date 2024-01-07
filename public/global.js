@@ -1,4 +1,3 @@
-/* creates an ajax post request using promises */
 const _l = {
     more_details: 'مشاهده بیشتر',
     less_details: 'مشاهده کمتر',
