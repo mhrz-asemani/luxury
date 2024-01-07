@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: "LuxPart",
   props: {
     opt: Object,
     navicon: String,
@@ -9,7 +8,7 @@ export default {
   },
   mounted() {
     jQuery(this.$refs.catSlider).owlCarousel(this.$props.opt)
-        .find('.owl-nav').addClass(`sliderNavBtn rect`).children().append(this.$props.navicon);
+      .find('.owl-nav').addClass(`sliderNavBtn rect`).children().append(this.$props.navicon);
   },
   computed: {
     device_mobile() {

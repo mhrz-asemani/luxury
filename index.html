@@ -1,14 +1,73 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vite + Vue</title>
-  </head>
-  <body>
-    <div id="app"></div>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <link rel="stylesheet" href="./lib/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./lib/css/owl.theme.default.min.css">
+
+</head>
+<body id="luxury">
+
+    <section id="newest" class="newest">
+        <div class="part-content position-rel">
+            <div class="container-32">
+                <div class="part-title">
+                    <h2 class="title">جدیدترین‌ها</h2>
+                </div>
+            </div>
+            <div class="container-32">
+                <div class="cardsWrapper" id="new_cards_wrap">
+                    <template v-if="Object.keys(cardContent).length">
+                        <blurred-card v-for="cnt in cardContent" :content="cnt"></blurred-card>
+                    </template>
+                    <template v-else>
+                        <div class="aminoo" @click="updateCnt">loading ...</div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="popularArticles" class="popularArticles">
+        <div class="part-content">
+            <!-- title - common between all devices -->
+            <div class="container titleContainer">
+                <div class="part-title">
+                    <div class="titleWrapper">
+                        <h2 class="title">پرطرفدارترین دسته‌بندی لاکچری</h2>
+                    </div>
+                    <div class="imgWrap"></div>
+                </div>
+            </div>
+            <!-- Vue rendered part -->
+            <div class="container partsWrap" id="luxParts">
+                <!-- luxContent is the obj of luxuryCategories in requested json -->
+                <!-- (array, category): category = keys in luxContent, array = value(here is array) -->
+                <template v-if="Object.keys(luxContent).length">
+                    <Lux-part :opt="options" :navIcon="arrowIcon" v-for="(array, category) in luxContent"
+                              :arr="array" :cat="category">
+                    </Lux-part>
+                </template>
+                <template v-else>
+                    <div class="aminoo" @click="updateCnt">loading ...</div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+<script>
+    const serverUrl = 'https://holidaygroup.eu/api/landing/about-businesses';
+    const localUrl = '/json/pageContent.json';
+</script>
+<!-- libraries -->
+<script src="./lib/js/jquery.min.js"></script>
+<script src="./lib/js/owl.carousel.min.js"></script>
+
+<script src="/global.js"></script>
+<script type="module" src="./src/main.js"></script>
+
+</body>
 </html>

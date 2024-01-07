@@ -1,38 +1,45 @@
-// import { fileURLToPath, URL } from "url";
+// import { resolve } from 'path'
+import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
 import usePHP from 'vite-plugin-php';
 
-
 export default defineConfig({
   plugins: [
     vue(),
-    // sass({ insert: true }),
     // usePHP({
-      // entry: ['index.php']
+    //   binary: 'c:\\xampp\\php\\php.exe',
+    //   entry: ['index.php'],
     // }),
     legacy({
-      // defaults means:  'last 2 versions and not dead, > 0.3%, Firefox ESR'
-        targets: ['defaults', 'not IE 11'],
+        targets: ['defaults', 'not IE 11'],   // defaults means:  'last 2 versions and not dead, > 0.3%, Firefox ESR'
     })
+    // sass({ insert: true }),
   ],
+  // server: {
+  //   host: '192.168.1.155', // Change this to a valid IP address if needed
+  //   port: 5173, // Optional otherwise your app will start on default port
+  // },
   build: {
     // emptyOutDir: true,
     minify: false,
     rollupOptions: {
-
     }
   },
-  // resolve: {
-  //   alias: {
-  //     "@": fileURLToPath(new URL("./src", import.meta.url)),
-  //   },
-  // },
+  resolve: {
+    alias:
+      {
+        vue: 'vue/dist/vue.esm-bundler.js',
+        // "./runtimeConfig": "./runtimeConfig.browser",
+        // "_": fileURLToPath(new URL("./src", import.meta.url))
+      },
+
+  },
   css: {
     preprocessorOptions: {
       sass: {
-        // additionalData: `@import "src/assets/scss/_variables.scss";`
+        // additionalData: `@import "src/sass/basics/predefined.sass"`
       }
     }
   }
