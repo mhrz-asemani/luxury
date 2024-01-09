@@ -5,12 +5,13 @@
         <img class="poster b-lazy" :data-src="src" src=""
              alt="poster" decoding="async" width="340" height="270">
       </div>
+      {{if (true) alert('hello')}}
       <div class="text-label">
         <div class="date">{{ date }}</div>
         <div class="titleWrapper flex">
           <span class="title textOverflow line-clamp-2">{{ title }}</span>
           <span class="icon">
-<!--            <?php include("./assets/svg/arrow.php");?>-->
+            <svg class="arrow" width="20" height="20" role="img" aria-label="arrow"><use xlink:href="#arrow"/></svg>
           </span>
         </div>
       </div>
@@ -22,6 +23,7 @@
 <script>
 // import '../sass/temp-part/BlurredCard.sass';
 export default {
+  name: "BlurredCard",
   props: {
     content: Object
   },
@@ -37,6 +39,8 @@ export default {
 </script>
 
 <!--<style lang="sass">-->
+<!--@import '../sass/basics/variables.sass'-->
+<!--@import '../sass/basics/predefined.sass'-->
 <!--.blurredCard-->
 <!--  overflow: hidden-->
 <!--  border-radius: 4px-->
@@ -49,7 +53,7 @@ export default {
 <!--  a-->
 <!--    width: 100%-->
 <!--  .card-img-->
-<!--    //@include aspect(1.26, 1)-->
+<!--    @include aspect(1.26, 1)-->
 <!--    width: 100%-->
 <!--  .text-label-->
 <!--    position: absolute-->
@@ -69,9 +73,9 @@ export default {
 <!--    inset: 0-->
 <!--    transition: opacity 300ms ease-out-->
 <!--  .date-->
-<!--    //font: 550 18px/normal $yekanBakh-->
+<!--    font: 550 16px/normal $yekanBakh-->
 <!--  .title-->
-<!--    //font: 700 20px/35px $yekanBakh-->
+<!--    font: 700 18px/35px $yekanBakh-->
 <!--  .icon-->
 <!--    padding-right: 15px-->
 <!--    border-right: 1px solid #fff-->

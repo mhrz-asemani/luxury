@@ -1,7 +1,7 @@
-const _l = {
+let _l = {
     more_details: 'مشاهده بیشتر',
     less_details: 'مشاهده کمتر',
-}
+};
 let blazy;
 
 let post_request = ({url, data = {}, reqType = "GET", asyncType = true}) =>

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
-import usePHP from 'vite-plugin-php';
+// import usePHP from 'vite-plugin-php';
 
 export default defineConfig({
   plugins: [
@@ -31,16 +31,17 @@ export default defineConfig({
     alias:
       {
         vue: 'vue/dist/vue.esm-bundler.js',
+        "@": fileURLToPath(new URL("./src", import.meta.url))
         // "./runtimeConfig": "./runtimeConfig.browser",
         // "_": fileURLToPath(new URL("./src", import.meta.url))
       },
 
   },
   css: {
-    preprocessorOptions: {
-      sass: {
-        // additionalData: `@import "src/sass/basics/predefined.sass"`
-      }
-    }
+    // preprocessorOptions: {
+    //   sass: {
+    //     additionalData: `@import "@/luxury.sass";`
+    //   }
+    // }
   }
 })
