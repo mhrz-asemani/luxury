@@ -5,7 +5,6 @@
         <img class="poster b-lazy" :data-src="src" src=""
              alt="poster" decoding="async" width="340" height="270">
       </div>
-      {{if (true) alert('hello')}}
       <div class="text-label">
         <div class="date">{{ date }}</div>
         <div class="titleWrapper flex">
@@ -15,7 +14,7 @@
           </span>
         </div>
       </div>
-      <div class="blurred"></div>
+      <div v-html="randomText" class="blurred"></div>
     </a>
   </div>
 </template>
@@ -32,7 +31,8 @@ export default {
       title: this.content.title,
       src: this.content.src,
       date: this.content.date,
-      link: this.content.link
+      link: this.content.link,
+      randomText: '<h2>hello</h2>'
     };
   }
 }
