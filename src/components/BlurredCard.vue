@@ -1,5 +1,5 @@
 <template>
-  <div class="blurredCard">
+  <div class="blurredCard" v-on:click="doSomething($event)">
     <a :href="link" class="card_link flex">
       <div class="card-img flex">
         <img class="poster b-lazy" :data-src="src" src=""
@@ -34,6 +34,12 @@ export default {
       link: this.content.link,
       randomText: '<h2>hello</h2>'
     };
+  },
+  methods: {
+    doSomething(e) {
+      e.preventDefault()
+      console.log(e);
+    }
   }
 }
 </script>
