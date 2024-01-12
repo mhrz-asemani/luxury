@@ -1,5 +1,6 @@
-@use "sass:math"
 // alternative for unsupported aspect-ratio browsers
+@use "sass:math"
+
 @mixin aspect($width, $height)
   $w_per_h: math.div($width, $height)
   $h_per_w: math.div($height, $width)

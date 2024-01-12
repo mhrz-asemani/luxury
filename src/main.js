@@ -3,7 +3,7 @@ import { createApp } from 'vue'
  if imported component has dedicated style/or imported style in script, it transpiles to css and added to the head tag
    during compilation.
 */
-import './luxury.sass'
+// import './luxury.css'
 import './luxury.js'
 
 import BlurredCard from "./components/BlurredCard.vue";
