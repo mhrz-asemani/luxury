@@ -1,5 +1,5 @@
 <template>
-  <div class="blurredCard" v-on:click="doSomething($event)">
+  <div class="blurredCard" v-on:click="doSomething($event)">{{hoverAction()}}
     <a :href="link" class="card_link flex">
       <div class="card-img flex">
         <img class="poster b-lazy" :data-src="src" src=""
@@ -14,7 +14,7 @@
           </span>
         </div>
       </div>
-      <div v-html="randomText" class="blurred"></div>
+      <div v-html="counter" class="blurred"></div>
     </a>
   </div>
 </template>
@@ -32,13 +32,19 @@ export default {
       src: this.content.src,
       date: this.content.date,
       link: this.content.link,
-      randomText: '<h2>hello</h2>'
+      counter: 0,
     };
   },
   methods: {
     doSomething(e) {
       e.preventDefault()
-      console.log(e);
+      this.title = 'amin';
+      alert('clicked')
+      // console.log(e);
+    },
+    hoverAction() {
+      // alert('counter');
+      return this.counter += 1;
     }
   }
 }
