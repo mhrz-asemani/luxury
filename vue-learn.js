@@ -1,4 +1,9 @@
 /*
+compile sass to css via command line:
+  sass --watch src/sass/main.scss:src/css/main.css
+ */
+
+/*
 Directives:
   v-once : any reactive state inside the element using v-once, only executes once.(it locks the content).
       it means any changes on the reactive state does not affect on the element.

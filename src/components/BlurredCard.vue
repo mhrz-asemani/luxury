@@ -1,11 +1,12 @@
 <template>
-  <div class="blurredCard" v-on:click="doSomething($event)">{{hoverAction()}}
+  <div class="blurredCard" v-on:click="increase_counter($event)" v-on:dblclick="output()">
     <a :href="link" class="card_link flex">
       <div class="card-img flex">
         <img class="poster b-lazy" :data-src="src" src=""
              alt="poster" decoding="async" width="340" height="270">
       </div>
       <div class="text-label">
+        <div>{{counter}} : {{changed_name}}</div>
         <div class="date">{{ date }}</div>
         <div class="titleWrapper flex">
           <span class="title textOverflow line-clamp-2">{{ title }}</span>
@@ -14,7 +15,8 @@
           </span>
         </div>
       </div>
-      <div v-html="counter" class="blurred"></div>
+      <div class="blurred"></div>
+      <span></span>
     </a>
   </div>
 </template>
@@ -33,18 +35,28 @@ export default {
       date: this.content.date,
       link: this.content.link,
       counter: 0,
+      name: 'ali'
     };
   },
+  computed: {
+    changed_name() {
+      console.log('change name fired!');
+      return this.name;
+    }
+  },
   methods: {
-    doSomething(e) {
+    increase_counter(e) {
       e.preventDefault()
-      this.title = 'amin';
-      alert('clicked')
-      // console.log(e);
+      this.counter++;
     },
-    hoverAction() {
-      // alert('counter');
-      return this.counter += 1;
+    change_name() {
+      console.log('change name fired!');
+      return 'sfsfd';
+    },
+    output() {
+      console.log('output fired!');
+      this.name = 'reza';
+      return 'output fired!'
     }
   }
 }
