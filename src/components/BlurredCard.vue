@@ -1,5 +1,5 @@
 <template>
-  <div class="blurredCard" v-on:click="increase_counter($event)" v-on:dblclick="output()">
+  <div class="blurredCard" @click="increase_counter($event)" @dblclick="output()">
     <a :href="link" class="card_link flex">
       <div class="card-img flex">
         <img class="poster b-lazy" :data-src="src" src=""
@@ -38,9 +38,14 @@ export default {
       name: 'ali'
     };
   },
+  watch: {
+    counter(current, prev) {
+      console.log('prev: ', prev, 'current: ', current);
+    }
+  },
   computed: {
     changed_name() {
-      console.log('change name fired!');
+      // console.log('change name fired!');
       return this.name;
     }
   },
@@ -50,11 +55,11 @@ export default {
       this.counter++;
     },
     change_name() {
-      console.log('change name fired!');
+      // console.log('change name fired!');
       return 'sfsfd';
     },
     output() {
-      console.log('output fired!');
+      // console.log('output fired!');
       this.name = 'reza';
       return 'output fired!'
     }

@@ -15,3 +15,12 @@ Directives:
         this.enteredVal = e.target.value;
       }
 */
+
+/*
+Properties:
+  watcher : like computed, it fires whenever the specified reactive state changes.
+      watcher method name must be the same as the tracking reactive state.
+      watcher is an alternative for computed. BUT, in a computed property you can watch for 1 or more states,
+      while a watcher method could only watch 1 state. so for watching multiple states, you have to write multiple
+      methods.
+*/
