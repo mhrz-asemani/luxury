@@ -166,7 +166,7 @@
         <div class="container-32">
             <div class="cardsWrapper" id="new_cards_wrap">
                 <template v-if="Object.keys(cardContent).length">
-                    <blurred-card v-for="cnt in cardContent" :content="cnt"></blurred-card>
+                    <blurred-card v-for="(cnt, idx) in cardContent" :key="idx" :content="cnt"></blurred-card>
                 </template>
                 <template v-else>
                     <div class="aminoo" @click="updateCnt">loading ...</div>
@@ -192,7 +192,7 @@
         <div class="container partsWrap" id="luxParts">
             <!-- (array, category): category = keys in luxContent, array = value(here is array) -->
             <template v-if="Object.keys(luxContent).length">
-                <Lux-part :opt="options" v-for="(cnt, category) in luxContent" :content="cnt" :cat="category"></Lux-part>
+                <Lux-part :opt="options" v-for="(value, key) in luxContent" :content="value" :cat="key"></Lux-part>
             </template>
             <template v-else>
                 <div class="aminoo" @click="updateCnt">loading ...</div>

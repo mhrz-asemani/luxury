@@ -12,9 +12,9 @@ import luxPart from "./components/LuxPart.vue";
 const arrowIcon = '<svg class="arrow" width="24" height="24" role="img" aria-label="arrow"><use xlink:href="#arrow"/></svg>';
 
 window.newArticle = createApp({
-  components: {
-    BlurredCard
-  },
+  // components: {
+  //   BlurredCard
+  // },
   data() {
     return {
       cardContent: {}
@@ -22,12 +22,14 @@ window.newArticle = createApp({
   },
   methods: {
     updateCnt() {
-      this.cardContent = data_json.newestArticles
-    }
+      this.cardContent = data_json.newestArticles;    // an array
+    },
   }
 });
+// alternative way to register a component. use this way or the above way
+newArticle.component('blurred-card', BlurredCard);
 newArticle.mount('#new_cards_wrap');
-
+// --------------------------------------------------------------------------------------------------
 window.luxuryParts = createApp({
   components: {
     luxPart
@@ -48,7 +50,7 @@ window.luxuryParts = createApp({
   },
   methods: {
     updateCnt() {
-      this.luxContent = data_json.luxuryCategories;
+      this.luxContent = data_json.luxuryCategories;    // an object
       // slice the object to get only 2 items
       this.luxContent = Object.fromEntries(
          Object.entries(this.luxContent).slice(0, 2)

@@ -1,11 +1,12 @@
 <template>
-  <div class="blurredCard" @click="increase_counter($event)" @dblclick="output()">
+  <div :class="['blurredCard', hover_action]" @click="increase_counter($event)" @dblclick="output()"
+    @mouseenter="hover = true" @mouseleave="hover = false">
     <a :href="link" class="card_link flex">
       <div class="card-img flex">
         <img class="poster b-lazy" :data-src="src" src=""
              alt="poster" decoding="async" width="340" height="270">
       </div>
-      <div class="text-label">
+      <div class="text-label" :style="blur">
         <div>{{counter}} : {{changed_name}}</div>
         <div class="date">{{ date }}</div>
         <div class="titleWrapper flex">
@@ -30,6 +31,10 @@ export default {
   },
   data() {
     return {
+      hover: false,
+      blur: {
+        color: 'white',
+      },
       title: this.content.title,
       src: this.content.src,
       date: this.content.date,
@@ -41,12 +46,16 @@ export default {
   watch: {
     counter(current, prev) {
       console.log('prev: ', prev, 'current: ', current);
+      current > 3 ? this.blur.color = 'black' : this.blur.color = 'white';
     }
   },
   computed: {
     changed_name() {
       // console.log('change name fired!');
       return this.name;
+    },
+    hover_action() {
+      return {hovered: this.hover};
     }
   },
   methods: {
@@ -62,7 +71,7 @@ export default {
       // console.log('output fired!');
       this.name = 'reza';
       return 'output fired!'
-    }
+    },
   }
 }
 </script>
