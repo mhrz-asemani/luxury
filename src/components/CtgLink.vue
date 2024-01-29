@@ -1,6 +1,6 @@
 <template>
   <div class="categoryLink">
-    <img class="b-lazy" :data-src="content[0].src" alt="articleLinkImg" decoding="async">
+    <img class="b-lazy" :data-src="content[0].src" alt="articleLinkImg" decoding="async" src="">
     <div class="flex content">
       <div class="catName">
         {{ content[0].title }}

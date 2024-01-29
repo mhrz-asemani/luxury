@@ -48,6 +48,13 @@ Directives:
       Vue re-uses DOM elements to optimize performance. this can lead to bugs if elements contain state.
       bind the Key attr to a unique value to help Vue identify elements that belong to list content.
       for more info, refer to "03 Rendering Conditional Content & Lists[UdemyIran.Com]" video.
+  props : is a way to pass data from parent to child component. props are read-only.
+      props writing syntax should be kebab-case when passing. but in the child component, we should use camelCase.
+      props mutation in child is not allowed.
+      it is a uni-directional flow. if you want to pass data from child to parent, you should use events.
+      if you want to mutate a prop, there are 2 ways:
+         1) use a copy of the prop in child component.
+         2) use a computed property in child component. this way, you can mutate the prop in parent component.
 */
 
 /*
