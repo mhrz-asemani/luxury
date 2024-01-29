@@ -11,8 +11,19 @@ export default {
     CtgLink,
   },
   props: {
-    opt: Object,
-    content: Array,
+    // prop validation: a prop could be more informative.
+    opt: {
+      type: Object,
+      required: false,   // if we miss passing the prop, it uses default value
+      default: { rtl: true, margin: 5, items: 4 },
+      validator: function (value) {     // in case validator returns false, it throws a console warning
+        return typeof value === "boolean";
+      }
+    },
+    content: {
+      type: Array,
+      required: true
+    },
     cat: String,
   },
   mounted() {
