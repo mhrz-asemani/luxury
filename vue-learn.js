@@ -48,13 +48,11 @@ Directives:
       Vue re-uses DOM elements to optimize performance. this can lead to bugs if elements contain state.
       bind the Key attr to a unique value to help Vue identify elements that belong to list content.
       for more info, refer to "03 Rendering Conditional Content & Lists[UdemyIran.Com]" video.
-  props : is a way to pass data from parent to child component. props are read-only.
-      props writing syntax should be kebab-case when passing. but in the child component, we should use camelCase.
-      props mutation in child is not allowed.
-      it is a uni-directional flow. if you want to pass data from child to parent, you should use events.
-      if you want to mutate a prop, there are 2 ways:
-         1) use a copy of the prop in child component.
-         2) use a computed property in child component. this way, you can mutate the prop in parent component.
+         2) use $emit property in child component. this way, you can mutate the prop in parent component.
+  $emit: this.$emit( "email-change", argument(s) )
+      used to communicate component back to parent. for example when we want to inform parent that a data inside
+      parent changed. custom event name should be in kebab case.
+      Also emit is used to mutate data in parent.
 */
 
 /*
@@ -62,6 +60,14 @@ Properties:
   watcher : like computed, it fires whenever the specified reactive state changes.
       watcher method name must be the same as the tracking reactive state.
       watcher is an alternative for computed. BUT, in a computed property you can watch for 1 or more states,
-      while a watcher method could only watch 1 state. so for watching multiple states, you have to write multiple
-      methods.
+      while a watcher method could only watch 1 state. so for watching multiple states, you have to write multiple methods.
+  props : is a way to pass data from parent to child component. props are read-only.
+      props writing syntax should be kebab-case when passing. but in the child component, we should use camelCase.
+      props mutation in child is not allowed.
+      it is a uni-directional flow. if you want to pass data from child to parent, you should use events.
+      if you want to mutate a prop, there are 2 ways:
+         1) use a copy of the prop in child component.
+  emits: is like props. can be an array or an object for validating it.
+      for more info refer to "Component Communication 7-8". remember, this property is optional. it is for better knowing
+      the component at a glance. so you may list all emits inside the property.
 */
