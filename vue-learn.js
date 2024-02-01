@@ -49,7 +49,7 @@ Directives:
       bind the Key attr to a unique value to help Vue identify elements that belong to list content.
       for more info, refer to "03 Rendering Conditional Content & Lists[UdemyIran.Com]" video.
          2) use $emit property in child component. this way, you can mutate the prop in parent component.
-  $emit: this.$emit( "email-change", argument(s) )
+  $emit: this.$emit( "email-change", argument(s) ). arguments will separate with comma => $emit( "email-change", arg1, arg2, arg3, ... ). or pass an array or obj.
       used to communicate component back to parent. for example when we want to inform parent that a data inside
       parent changed. custom event name should be in kebab case.
       Also emit is used to mutate data in parent.

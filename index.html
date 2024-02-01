@@ -192,7 +192,9 @@
         <div class="container partsWrap" id="luxParts">
             <!-- (array, category): category = keys in luxContent, array = value(here is array) -->
             <template v-if="Object.keys(luxContent).length">
-                <Lux-part :opt="options" v-for="(value, key) in luxContent" :content="value" :cat="key"></Lux-part>
+                <Lux-part :opt="options" v-for="(value, key) in luxContent" :content="value" :cat="key" :key="key"
+                    :id="key" @remove-part="removePart"
+                ></Lux-part>
             </template>
             <template v-else>
                 <div class="aminoo" @click="updateCnt">loading ...</div>

@@ -10,6 +10,7 @@ export default {
     LuxCard,
     CtgLink,
   },
+  emits: ['remove-part'],
   props: {
     // prop validation: a prop could be more informative.
     opt: {
@@ -25,6 +26,7 @@ export default {
       required: true
     },
     cat: String,
+    id: String
   },
   mounted() {
     jQuery(this.$refs.catSlider).owlCarousel(this.$props.opt)
@@ -40,6 +42,7 @@ export default {
 
 <template>
   <div v-if="!device_mobile" class="partContainer part_container part-divider">
+    <button type="button" @click="$emit('remove-part', id)">*</button>
     <div class="flex-between contents">
       <card-index :content="content"></card-index>
       <div class="part-slider">

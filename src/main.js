@@ -26,9 +26,11 @@ window.newArticle = createApp({
     },
   }
 });
-// alternative way to register a component. use this way or the above way
+// alternative way to register a component. use this way or the above way.
+// component name(or tag name) should be written in kebab case.
 newArticle.component('blurred-card', BlurredCard);
 newArticle.mount('#new_cards_wrap');
+
 // --------------------------------------------------------------------------------------------------
 window.luxuryParts = createApp({
   components: {
@@ -51,10 +53,13 @@ window.luxuryParts = createApp({
   methods: {
     updateCnt() {
       this.luxContent = data_json.luxuryCategories;    // an object
-      // slice the object to get only 2 items
+      // slice the object to get some items
       this.luxContent = Object.fromEntries(
-         Object.entries(this.luxContent).slice(0, 2)
+         Object.entries(this.luxContent).slice(0, 4)
       );
+    },
+    removePart(partId) {
+      delete this.luxContent[partId];
     }
   }
 });
