@@ -57,17 +57,27 @@ Directives:
 
 /*
 Properties:
-  watcher : like computed, it fires whenever the specified reactive state changes.
+  watcher :
+      like computed, it fires whenever the specified reactive state changes.
       watcher method name must be the same as the tracking reactive state.
       watcher is an alternative for computed. BUT, in a computed property you can watch for 1 or more states,
       while a watcher method could only watch 1 state. so for watching multiple states, you have to write multiple methods.
-  props : is a way to pass data from parent to child component. props are read-only.
+  props :
+      is a way to pass data from parent to child component. props are read-only.
       props writing syntax should be kebab-case when passing. but in the child component, we should use camelCase.
       props mutation in child is not allowed.
       it is a uni-directional flow. if you want to pass data from child to parent, you should use events.
       if you want to mutate a prop, there are 2 ways:
          1) use a copy of the prop in child component.
-  emits: is like props. can be an array or an object for validating it.
+  emits:
+      is like props. can be an array or an object for validating it.
       for more info refer to "Component Communication 7-8". remember, this property is optional. it is for better knowing
       the component at a glance. so you may list all emits inside the property.
+  provide & inject:
+      "provide and inject". A potential problem is that when we use nested components, if we want to pass data from parent
+      to the inner component, we have to pass it to the first comp at first, then to the second and ... then to specific comp.
+      "It is not actually a problem". but we're going to reduce coding. So Vue has a solution for that.
+      "Provide data, then listen to it anywhere you want". In inner comp we use the option below to listen to provided data:
+      inject: [''] ... just like props.
+      we can use it only from ancestor comp to child. 
 */
