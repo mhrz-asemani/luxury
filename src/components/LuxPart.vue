@@ -55,7 +55,7 @@ export default {
   },
   mounted() {
     jQuery(this.$refs.catSlider).owlCarousel(this.$props.opt)
-      .find('.owl-nav').addClass(`sliderNavBtn rect`);
+        .find('.owl-nav').addClass(`sliderNavBtn rect`);
   },
   computed: {
     device_mobile() {
