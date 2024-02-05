@@ -79,5 +79,14 @@ Properties:
       "It is not actually a problem". but we're going to reduce coding. So Vue has a solution for that.
       "Provide data, then listen to it anywhere you want". In inner comp we use the option below to listen to provided data:
       inject: [''] ... just like props.
-      we can use it only from ancestor comp to child. 
+      we can use it only from ancestor comp to child.
+  inject:
+      Injections are resolved before the component's own state, so you can access injected properties in data():
+      inject is accessible via this key word.
+      inject: ['message'],
+      data() {
+        return {
+          fullMessage: this.message
+        }
+      }
 */

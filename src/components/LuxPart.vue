@@ -2,7 +2,8 @@
   <div v-if="!device_mobile" class="partContainer part_container part-divider">
     <button type="button" @click="$emit('remove-part', id)">*</button>
     <div class="flex-between contents">
-      <card-index :content="content"></card-index>
+<!--      <card-index :content="content"></card-index>-->
+      <card-index />
       <div class="part-slider">
         <div class="sliderWrapper owl-carousel owl-theme" :data-category="cat" ref="catSlider">
           <lux-card v-for="(value, idx) in content.slice(1)" :item="value" :key="idx"></lux-card>
