@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { computed, createApp } from 'vue'
 /*
  if imported component has dedicated style/or imported style in script, it transpiles to css and added to the head tag
    during compilation.
@@ -55,12 +55,14 @@ window.luxuryParts = createApp({
     //   console.log(prev, next)
     // }
   },
-  provide() {
-    return {
-      // In order to make injections reactively linked to the provider, we need to provide a computed property.
-      content: computed(() => Object.values(this.luxContent))
-    }
-  },
+  // provide() {
+  //   return {
+      /* In order to make injections reactively linked to the provider, we need to provide a computed property.
+        using computed property this way, we need to import computed from vue.
+      */
+  //     content: computed(() => Object.values(this.luxContent))
+  //   }
+  // },
   methods: {
     updateCnt() {
       this.luxContent = data_json.luxuryCategories;    // an object

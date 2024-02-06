@@ -788,6 +788,9 @@ svg, svg path {
   overflow: hidden;
   flex-shrink: 0;
 }
+.card .poster {
+  transition: transform 500ms ease-in-out;
+}
 .card:hover img {
   transform: scale(1.15);
 }
@@ -1433,7 +1436,6 @@ footer {
   padding: 16px;
   border: 1px solid var(--color-black-16);
   background: #FFF;
-  border-radius: 4px;
 }
 .articleBox, .articleBox * {
   transition: all 270ms ease-out;
@@ -1446,6 +1448,7 @@ footer {
 }
 .articleBox .artContent {
   column-gap: 12px;
+  border-radius: 4px;
 }
 .articleBox .artTitle {
   font: 550 16px/normal "yekanBakh";

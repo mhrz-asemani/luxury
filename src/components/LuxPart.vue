@@ -2,8 +2,7 @@
   <div v-if="!device_mobile" class="partContainer part_container part-divider">
     <button type="button" @click="$emit('remove-part', id)">*</button>
     <div class="flex-between contents">
-<!--      <card-index :content="content"></card-index>-->
-      <card-index />
+      <card-index :content="content"></card-index>
       <div class="part-slider">
         <div class="sliderWrapper owl-carousel owl-theme" :data-category="cat" ref="catSlider">
           <lux-card v-for="(value, idx) in content.slice(1)" :item="value" :key="idx"></lux-card>
@@ -43,8 +42,8 @@ export default {
       type: Object,
       required: false,   // if we miss passing the prop, it uses default value
       default: { rtl: true, margin: 5, items: 4 },
-      validator: function (value) {     // in case validator returns false, it throws a console warning
-        return typeof value === "boolean";
+      validator: function(value) {     // in case validator returns false, it throws a console warning
+        return typeof value === "object";
       }
     },
     content: {
@@ -56,7 +55,7 @@ export default {
   },
   mounted() {
     jQuery(this.$refs.catSlider).owlCarousel(this.$props.opt)
-        .find('.owl-nav').addClass(`sliderNavBtn rect`);
+      .find('.owl-nav').addClass(`sliderNavBtn rect`);
   },
   computed: {
     device_mobile() {
