@@ -1,4 +1,4 @@
-import {computed, createApp} from 'vue'
+import { createApp } from 'vue'
 /*
  if imported component has dedicated style/or imported style in script, it transpiles to css and added to the head tag
    during compilation.
@@ -63,10 +63,10 @@ window.luxuryParts = createApp({
   },
   methods: {
     updateCnt() {
-      // this.luxContent = data_json.luxuryCategories;    // object
+      this.luxContent = data_json.luxuryCategories;    // an object
       // slice the object to get some items
       this.luxContent = Object.fromEntries(
-         Object.entries(data_json.luxuryCategories).slice(0, 4)
+        Object.entries(this.luxContent).slice(0, 4)
       );
     },
     removePart(partId) {
