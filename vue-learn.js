@@ -89,4 +89,13 @@ Properties:
           fullMessage: this.message
         }
       }
+      Remember: we can provide data type function. for example:
+      provide() {
+        return {
+          anyName: this.sliderUpdate    // sliderUpdate here is a method for example.
+        }
+      }
+      We can pass functions through Props or Events. But it's an alt for them.
+      Final note: Props & Events should be default for components communication. In case we have multiple
+      pass through components for a data, it would be better using Provide & Inject.
 */
