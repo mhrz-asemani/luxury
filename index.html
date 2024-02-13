@@ -175,6 +175,85 @@
         </div>
     </div>
 </section>
+<section id="staticCards">
+    <div class="container-32">
+        <div class="part-title">
+            <h2 class="title">مقالات مریض</h2>
+        </div>
+    </div>
+    <div class="container-32">
+        <div class="cardsWrapper">
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://garnil.club/uploads/posts/2023-01/1674692582_garnil-club-p-obrazi-na-mai-moda-vkontakte-36.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://i.pinimg.com/originals/d4/2f/60/d42f60f34ff38bbe68be6ba558c97046.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://www.desktopbackground.org/download/1680x1050/2014/04/16/748130_tropical-island_2560x1920_h.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</p>
+                </template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://4.bp.blogspot.com/-oDLNySmKufU/VlcF8ck6vfI/AAAAAAAAFZI/zdE1zPCsgnE/w800-h1024-c/artwork-female-runner-android-best-wallpaper.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://i.pinimg.com/originals/d4/2f/60/d42f60f34ff38bbe68be6ba558c97046.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://www.desktopbackground.org/download/1680x1050/2014/04/16/748130_tropical-island_2560x1920_h.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://garnil.club/uploads/posts/2023-01/1674692582_garnil-club-p-obrazi-na-mai-moda-vkontakte-36.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+            <card>
+                <template v-slot:title>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</p>
+                </template>
+                <template v-slot:date>۱۴۰۲/11/۲۷</template>
+                <template v-slot:img>
+                    <img class="poster b-lazy" data-src="https://4.bp.blogspot.com/-oDLNySmKufU/VlcF8ck6vfI/AAAAAAAAFZI/zdE1zPCsgnE/w800-h1024-c/artwork-female-runner-android-best-wallpaper.jpg"
+                         alt="poster" decoding="async" width="282" height="202" src="">
+                </template>
+            </card>
+        </div>
+    </div>
+</section>
 <section id="popularArticles" class="popularArticles">
     <div class="part-content">
         <!-- title - common between all devices -->
@@ -193,8 +272,8 @@
             <!-- (array, category): category = keys in luxContent, array = value(here is array) -->
             <template v-if="Object.keys(luxContent).length">
                 <Lux-part :opt="options" v-for="(value, key) in luxContent" :content="value" :cat="key" :key="key"
-                    :id="key" @remove-part="removePart"
-                ></Lux-part>
+                    :id="key" @remove-part="removePart">
+                </Lux-part>
             </template>
             <template v-else>
                 <div class="aminoo" @click="updateCnt">loading ...</div>

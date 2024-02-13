@@ -98,4 +98,9 @@ Properties:
       We can pass functions through Props or Events. But it's an alt for them.
       Final note: Props & Events should be default for components communication. In case we have multiple
       pass through components for a data, it would be better using Provide & Inject.
+  components:
+      is an object that contains all the components that we want to use in the parent component.
+      there are 2 ways to use a component in another component:
+         1) globally: we can use the component in any other component.          // in main.js
+         2) locally: we can use the component only in the parent component.     // in the parent component.
 */

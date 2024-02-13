@@ -801,7 +801,7 @@ svg, svg path {
 .card-img {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  border-radius: 12px;
 }
 
 .card-body {
@@ -1763,6 +1763,40 @@ body#luxury.device_mobile .ft-logo {
 }
 .latestArticles .load_more {
   display: none;
+}
+
+#staticCards {
+  margin-block: 64px 100px;
+}
+#staticCards .cardsWrapper {
+  display: flex;
+  margin-block: 32px 0;
+  gap: 0 24px;
+}
+#staticCards .card-footer, #staticCards .card-body {
+  visibility: hidden;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+#staticCards .card-img {
+  height: 240px;
+  transition: width 350ms ease-in-out;
+}
+#staticCards a {
+  width: 60px;
+  transition: width 350ms ease-in-out;
+}
+#staticCards .card:hover img {
+  transform: none;
+}
+#staticCards .card:hover .card-footer, #staticCards .card:hover .card-body {
+  visibility: visible;
+  opacity: 1;
+  transform: scaleX(1);
+}
+#staticCards .card:hover a {
+  width: 260px;
 }
 
 @media (max-width: 991px) {

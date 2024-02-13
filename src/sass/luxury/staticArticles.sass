@@ -1,0 +1,27 @@
+#staticCards
+  margin-block: 64px 100px
+  .cardsWrapper
+    display: flex
+    margin-block: 32px 0
+    gap: 0 24px
+  .card-footer,.card-body
+    visibility: hidden
+    opacity: 0
+    transform: scaleX(0)
+    transform-origin: right
+  .card-img
+    height: 240px
+    transition: width 350ms ease-in-out
+  a
+    width: 60px
+    transition: width 350ms ease-in-out
+  .card
+    &:hover
+      img
+        transform: none
+      .card-footer,.card-body
+        visibility: visible
+        opacity: 1
+        transform: scaleX(1)
+      a
+        width: 260px

@@ -7,7 +7,7 @@
              alt="poster" decoding="async" width="340" height="270">
       </div>
       <div class="text-label" :style="blur">
-        <div>{{counter}} : {{changed_name}}</div>
+        <div>{{ counter }} : {{ changed_name }}</div>
         <div class="date">{{ date }}</div>
         <div class="titleWrapper flex">
           <span class="title textOverflow line-clamp-2">{{ title }}</span>

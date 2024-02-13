@@ -8,6 +8,7 @@ import './luxury.js'
 
 import BlurredCard from "./components/BlurredCard.vue";
 import luxPart from "./components/LuxPart.vue";
+import Card from "./components/Card.vue"
 
 const arrowIcon = '<svg class="arrow" width="24" height="24" role="img" aria-label="arrow"><use xlink:href="#arrow"/></svg>';
 
@@ -30,6 +31,12 @@ window.newArticle = createApp({
 // component name(or tag name) should be written in kebab case.
 newArticle.component('blurred-card', BlurredCard);
 newArticle.mount('#new_cards_wrap');
+
+// --------------------------------------------------------------------------------------------------
+const staticCard = createApp({
+  components: { Card },
+});
+staticCard.mount("#staticCards");
 
 // --------------------------------------------------------------------------------------------------
 window.luxuryParts = createApp({
