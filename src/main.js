@@ -72,10 +72,11 @@ window.luxuryParts = createApp({
   // },
   methods: {
     updateCnt() {
+      const number_of_parts = 3;
       this.luxContent = data_json.luxuryCategories;    // an object
       // slice the object to get some items
       this.luxContent = Object.fromEntries(
-        Object.entries(this.luxContent).slice(0, 4)
+        Object.entries(this.luxContent).slice(0, number_of_parts)
       );
     },
     removePart(partId) {
