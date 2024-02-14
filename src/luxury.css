@@ -1766,6 +1766,7 @@ body#luxury.device_mobile .ft-logo {
 }
 
 #staticCards {
+  height: 418px;
   margin-block: 64px 100px;
 }
 #staticCards .cardsWrapper {
@@ -1778,6 +1779,8 @@ body#luxury.device_mobile .ft-logo {
   opacity: 0;
   transform: scaleX(0);
   transform-origin: right;
+  height: 0;
+  flex-basis: 0;
 }
 #staticCards .card-img {
   height: 240px;
@@ -1794,6 +1797,8 @@ body#luxury.device_mobile .ft-logo {
   visibility: visible;
   opacity: 1;
   transform: scaleX(1);
+  height: auto;
+  flex-basis: auto;
 }
 #staticCards .card:hover a {
   width: 260px;

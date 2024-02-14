@@ -184,9 +184,11 @@
     <div class="container-32">
         <div class="cardsWrapper">
             <card>
-                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
-                <template v-slot:date>۱۴۰۲/11/۲۷</template>
-                <template v-slot:img>
+                <template #title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+                <template #date="slotProps">
+                    {{ slotProps.publishDate }} : {{ slotProps.item }}
+                </template>
+                <template #img>
                     <img class="poster b-lazy" data-src="https://garnil.club/uploads/posts/2023-01/1674692582_garnil-club-p-obrazi-na-mai-moda-vkontakte-36.jpg"
                          alt="poster" decoding="async" width="282" height="202" src="">
                 </template>
@@ -234,9 +236,9 @@
                 </template>
             </card>
             <card>
-                <template v-slot:title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
-                <template v-slot:date>۱۴۰۲/11/۲۷</template>
-                <template v-slot:img>
+                <template #title>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</template>
+<!--                <template v-slot:date>۱۴۰۲/11/۲۷</template>-->
+                <template #img>
                     <img class="poster b-lazy" data-src="https://garnil.club/uploads/posts/2023-01/1674692582_garnil-club-p-obrazi-na-mai-moda-vkontakte-36.jpg"
                          alt="poster" decoding="async" width="282" height="202" src="">
                 </template>

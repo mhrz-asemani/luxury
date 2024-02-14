@@ -1,4 +1,5 @@
 #staticCards
+  height: 418px
   margin-block: 64px 100px
   .cardsWrapper
     display: flex
@@ -9,6 +10,8 @@
     opacity: 0
     transform: scaleX(0)
     transform-origin: right
+    height: 0
+    flex-basis: 0
   .card-img
     height: 240px
     transition: width 350ms ease-in-out
@@ -23,5 +26,7 @@
         visibility: visible
         opacity: 1
         transform: scaleX(1)
+        height: auto
+        flex-basis: auto
       a
         width: 260px

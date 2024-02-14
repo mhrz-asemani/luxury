@@ -93,7 +93,7 @@ Properties:
       provide() {
         return {
           anyName: this.sliderUpdate    // sliderUpdate here is a method for example.
-        }
+        };
       }
       We can pass functions through Props or Events. But it's an alt for them.
       Final note: Props & Events should be default for components communication. In case we have multiple
@@ -103,4 +103,28 @@ Properties:
       there are 2 ways to use a component in another component:
          1) globally: we can use the component in any other component.          // in main.js
          2) locally: we can use the component only in the parent component.     // in the parent component.
+         globally components are registered in the main.js file. So, the browser will load all the components at the beginning.
+  slots:
+      is a way to pass content from parent to child component. it's like props but for content.
+      In child component, we use <slot></slot> to render the content.
+      In parent where we pass the content, we use <template v-slot:slotName> ... </template>
+      shorthand for v-slot: is #. so we can use <template #slotName> ... </template>.
+      To make slots more reusable, we can pass them props. for example:
+      component:
+        <slot name="header" :item="goal" another-prop="..."></slot>
+      parent:
+        <base-card>
+          <template #header="slotProps">           // slotProps is an arbitrary name that we can use in the template.
+            <h2>{{ slotProps.item }}</h2>
+            <p>{{ slotProps['anotherProp'] }}</p>  // another way to access the prop.
+          </template>
+        </base-card>
+  dynamic components:
+      is a way to render a component dynamically.   Syntax: <component :is="componentName"></component>
+      Common solution is to use v-if or v-show. But it's not a good solution for performance. assume we have 10 components,
+      and we want to render one of them based on a condition. so we have to use 10 v-if or v-show. it's not a good solution.
+      Vue has a concept called dynamic components.
+      for example, we can render a component among all other components based on a condition.
+      <component :is="componentName"></component>     // componentName is a reactive state pointing to a component name.
+      Whenever componentName changes, the component will be re-rendered.
 */
