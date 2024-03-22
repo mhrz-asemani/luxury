@@ -49,7 +49,8 @@ Directives:
       bind the Key attr to a unique value to help Vue identify elements that belong to list content.
       for more info, refer to "03 Rendering Conditional Content & Lists[UdemyIran.Com]" video.
          2) use $emit property in child component. this way, you can mutate the prop in parent component.
-  $emit: this.$emit( "email-change", argument(s) ). arguments will separate with comma => $emit( "email-change", arg1, arg2, arg3, ... ). or pass an array or obj.
+  $emit: this.$emit( "email-change", argument(s) ). arguments will separate with comma => $emit( "email-change", arg1, arg2, arg3, ... ).
+      or pass an array or obj.
       used to communicate component back to parent. for example when we want to inform parent that a data inside
       parent changed. custom event name should be in kebab case.
       Also emit is used to mutate data in parent.
@@ -93,7 +94,7 @@ Properties:
       provide() {
         return {
           anyName: this.sliderUpdate    // sliderUpdate here is a method for example.
-        };
+        }
       }
       We can pass functions through Props or Events. But it's an alt for them.
       Final note: Props & Events should be default for components communication. In case we have multiple
@@ -101,9 +102,15 @@ Properties:
   components:
       is an object that contains all the components that we want to use in the parent component.
       there are 2 ways to use a component in another component:
-         1) globally: we can use the component in any other component.          // in main.js
-         2) locally: we can use the component only in the parent component.     // in the parent component.
-         globally components are registered in the main.js file. So, the browser will load all the components at the beginning.
+        1) globally: we can use the component in any other component.          // in main.js
+        2) locally: we can use the component only in the parent component.     // in the parent component.
+        globally components are registered in the main.js file. So, the browser will load all the components
+        at the beginning.
+*/
+
+/*
+Built-in components:
+  These are just component-like built-in tags and will be compiled during rendering.
   slots:
       is a way to pass content from parent to child component. it's like props but for content.
       In child component, we use <slot></slot> to render the content.
@@ -119,12 +126,18 @@ Properties:
             <p>{{ slotProps['anotherProp'] }}</p>  // another way to access the prop.
           </template>
         </base-card>
-  dynamic components:
-      is a way to render a component dynamically.   Syntax: <component :is="componentName"></component>
-      Common solution is to use v-if or v-show. But it's not a good solution for performance. assume we have 10 components,
-      and we want to render one of them based on a condition. so we have to use 10 v-if or v-show. it's not a good solution.
-      Vue has a concept called dynamic components.
-      for example, we can render a component among all other components based on a condition.
-      <component :is="componentName"></component>     // componentName is a reactive state pointing to a component name.
-      Whenever componentName changes, the component will be re-rendered.
+  Dynamic Component: <component>
+      Is a "meta component" for rendering dynamic components or elements.
+      <component :is="view" />     // is: any string data | component name.
+  keppAlive: <keep-alive>
+      Used together with Dynamic Component. Since a dynamic component switches between multiple components,
+      the previous component which gives its place to the new one, removes from DOM and any data stored on it
+      will be lost. To keep alive components, Use:
+      <keep-alive> biult-in tag to wrap the Component. The component will be cached and data will not be lost.
+      <keep-alive>
+        <component :is="">
+      </keep-alive>
+  teleport elements:
+      It allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM
+      hierarchy of that component.
 */
