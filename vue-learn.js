@@ -27,6 +27,23 @@ ES6 proxy object : an object that wraps another object(target) or function and m
           }
       });
       explain: we can only set 'm' and 's' keys for the data object. and we can only get 's' key.
+
+  Reference Values:
+    Arrays and Objects are ref values. i will explain the issue by example.
+      a = [2,3,4];
+      b = a;
+    // a and b are the same. means there is only one value stored in memory but with two references.
+    // but if i use itterable methods like filter on each of them, it produces a brand new array.
+      b = b.filter(i => i > 2);
+    // So, here a !== b. a = [2,3,4] and b = [3,4].
+    Use Case:
+      in provide inject when we decide to change the ref value just provided, we can't use the way like above.
+        provide: { resource: this.storedResource },
+        methods: {
+          this.storedResource = this.storedResource.filter(...);
+        }
+      this way, this.storedResource is brand new array !== resource, the old array. Means the reactive storedResource
+      gets updated but provided "resource" remains unchanged.
 */
 
 /*
@@ -93,7 +110,7 @@ Properties:
       provide() {
         return {
           anyName: this.sliderUpdate    // sliderUpdate here is a method for example.
-        };
+        }
       }
       We can pass functions through Props or Events. But it's an alt for them.
       Final note: Props & Events should be default for components communication. In case we have multiple
@@ -101,9 +118,15 @@ Properties:
   components:
       is an object that contains all the components that we want to use in the parent component.
       there are 2 ways to use a component in another component:
-         1) globally: we can use the component in any other component.          // in main.js
-         2) locally: we can use the component only in the parent component.     // in the parent component.
-         globally components are registered in the main.js file. So, the browser will load all the components at the beginning.
+        1) globally: we can use the component in any other component.          // in main.js
+        2) locally: we can use the component only in the parent component.     // in the parent component.
+        globally components are registered in the main.js file. So, the browser will load all the components
+        at the beginning.
+*/
+
+/*
+Built-in components:
+  These are just component-like built-in tags and will be compiled during rendering.
   slots:
       is a way to pass content from parent to child component. it's like props but for content.
       In child component, we use <slot></slot> to render the content.
@@ -119,12 +142,25 @@ Properties:
             <p>{{ slotProps['anotherProp'] }}</p>  // another way to access the prop.
           </template>
         </base-card>
-  dynamic components:
-      is a way to render a component dynamically.   Syntax: <component :is="componentName"></component>
-      Common solution is to use v-if or v-show. But it's not a good solution for performance. assume we have 10 components,
-      and we want to render one of them based on a condition. so we have to use 10 v-if or v-show. it's not a good solution.
-      Vue has a concept called dynamic components.
-      for example, we can render a component among all other components based on a condition.
-      <component :is="componentName"></component>     // componentName is a reactive state pointing to a component name.
-      Whenever componentName changes, the component will be re-rendered.
+  Dynamic Component: <component>
+      Is a "meta component" for rendering dynamic components or elements.
+      <component :is="view" />     // is: any string data | component name.
+  keppAlive: <keep-alive>
+      Used together with Dynamic Component. Since a dynamic component switches between multiple components,
+      the previous component which gives its place to the new one, removes from DOM and any data stored on it
+      will be lost. To keep alive components, Use:
+      <keep-alive> biult-in tag to wrap the Component. The component will be cached and data will not be lost.
+      <keep-alive>
+        <component :is="">
+      </keep-alive>
+  teleport: <Teleport to="">
+      It allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM
+      hierarchy of that component. Example:
+      // path: .../component.vue
+      <Teleport to="body">
+        <div class="modal">
+          <p>Hello from the modal!</p>
+        </div>
+      </Teleport>
+      It appends div.modal to the body element.
 */
